@@ -1,0 +1,57 @@
+{
+  "name": "vscode-dependency-manager-extension",
+  "displayName": "Dependency Manager",
+  "description": "An extension to manage and install dependencies automatically for your projects.",
+  "version": "0.1.0",
+  "publisher": "your-name",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "activationEvents": [
+    "onCommand:extension.compile",
+    "onCommand:extension.run",
+    "onCommand:extension.scan"
+  ],
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./tsconfig.json",
+    "watch": "tsc -watch -p ./tsconfig.json",
+    "postinstall": "node ./out/installer.js"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.compile",
+        "title": "Compile Project"
+      },
+      {
+        "command": "extension.run",
+        "title": "Run Project"
+      },
+      {
+        "command": "extension.scan",
+        "title": "Scan System"
+      }
+    ]
+  },
+  "dependencies": {
+    "some-dependency": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.0",
+    "ts-loader": "^8.0.0",
+    "vscode": "^1.1.37"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-name/vscode-dependency-manager-extension.git"
+  },
+  "keywords": [
+    "vscode",
+    "extension",
+    "dependency",
+    "manager"
+  ],
+  "license": "MIT"
+}

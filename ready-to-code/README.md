@@ -4,13 +4,45 @@ This is the README for your extension "ready-to-code". After writing up a brief 
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **Smart Dependency Management**: Automatically scans your code for dependencies and installs missing ones.
+- **Authentication-Aware Dependencies**: Handles dependencies that require authentication (like AWS, Google Cloud, OpenAI) by providing setup instructions instead of blind auto-installation.
+- **Runtime Error Detection**: Detects authentication errors during execution and provides relevant setup guidance.
+- **Multi-Language Support**: Supports Python, Node.js/TypeScript, and Java projects.
 
-For example if there is an image subfolder under your extension project workspace:
+### Authentication Dependency Handling
 
-\!\[feature X\]\(images/feature-x.png\)
+For dependencies that require login/authentication (boto3, firebase_admin, openai, etc.), the extension:
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+1. **Detects** them in your code imports
+2. **Warns** you instead of auto-installing
+3. **Provides** install commands, setup steps, and documentation links
+4. **Does not block** execution - you can still run your code
+
+Example output for boto3:
+```
+⚠ boto3 requires AWS credentials
+
+Install:
+  pip3 install boto3
+
+Setup:
+  aws configure
+
+Docs:
+  https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
+```
+
+Supported authentication-required dependencies:
+- boto3 (AWS)
+- firebase_admin (Firebase)
+- openai (OpenAI API)
+- google-cloud-storage (Google Cloud)
+- azure-storage-blob (Azure)
+- And more...
+
+## Requirements
+
+If you have any requirements or dependencies, add a section describing those and how to install and configure them.
 
 ## Requirements
 
